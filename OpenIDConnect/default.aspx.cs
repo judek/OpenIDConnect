@@ -11,7 +11,10 @@ namespace OpenIDConnect
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+            if (User.Identity.IsAuthenticated)
+            {
+                Literal1.Text = "Welcome " + User.Identity.Name + "!" + "<br /><a href='https://accounts.google.com/logout'>Click here to logout</a>";
+            }
+         }
     }
 }

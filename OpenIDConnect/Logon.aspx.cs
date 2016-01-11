@@ -9,6 +9,7 @@ using System.IO;
 using System.Text;
 using System.Collections.Specialized;
 using System.Web.Script.Serialization;
+using System.Web.Security;
 
 
 namespace OpenIDConnect
@@ -101,6 +102,10 @@ namespace OpenIDConnect
             sb.Append("<br /><a href='https://accounts.google.com/logout'>Click here to logout</a>");
 
             Literal1.Text = sb.ToString();
+
+
+            FormsAuthentication.RedirectFromLoginPage("<" + JasonReslut.payload["sub"] + "|" + JasonReslut.payload["email"] + ">", false);
+            
 
         }
 
