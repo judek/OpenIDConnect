@@ -52,7 +52,7 @@ namespace OpenIDConnect
             string code = Request.QueryString["code"];
             if (true == string.IsNullOrEmpty(code))
             {
-                Literal1.Text = "Access Code not available";
+                //Literal1.Text = "Access Code not available";
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace OpenIDConnect
            { "code", code }
            ,{ "client_id", "830214409982-e1su7c8o90mji3l6jf47rfdbrs4v23jk.apps.googleusercontent.com" }
            //Client secret has changed
-           ,{ "client_secret", "1wr3VUOWZK1F22o_ngwA7F0c" }
+           ,{ "client_secret", "7wr3VUOWZK1F22o_ngwA7F0c" }
            ,{ "redirect_uri", "http://localhost:49364/Logon.aspx" }
            ,{ "grant_type", "authorization_code" }
        });
@@ -104,7 +104,7 @@ namespace OpenIDConnect
             Literal1.Text = sb.ToString();
 
 
-            FormsAuthentication.RedirectFromLoginPage("<" + JasonReslut.payload["sub"] + "|" + JasonReslut.payload["email"] + ">", false);
+            FormsAuthentication.RedirectFromLoginPage(JasonReslut.payload["email"], false);
             
 
         }

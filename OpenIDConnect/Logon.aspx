@@ -32,8 +32,20 @@
 
             
              %>
-         <a href="<%=link2%>">Click here to login via Google</a> 
+         <a href="<%=link2%>">Click here to login through Google</a> 
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+
+        <%
+            if(System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                %>
+                    <br />User <%=HttpContext.Current.User.Identity.Name%> not allowed access to this resource. 
+                    <br />Please log into an another Google account.
+                <%
+            }
+            
+             %>
+
     </div>
     </form>
 </body>
